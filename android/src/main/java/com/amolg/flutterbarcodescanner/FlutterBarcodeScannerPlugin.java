@@ -12,8 +12,6 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
-import com.google.android.gms.vision.barcode.Barcode;
-
 import java.util.Map;
 
 import io.flutter.embedding.android.FlutterActivity;
@@ -109,11 +107,13 @@ public class FlutterBarcodeScannerPlugin implements MethodCallHandler, ActivityR
     @Override
     public boolean onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RC_BARCODE_CAPTURE) {
+            if (pendingResult == null) {
+                return true;
+            }
             if (resultCode == CommonStatusCodes.SUCCESS) {
                 if (data != null) {
                     try {
-                        Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
-                        String barcodeResult = barcode.rawValue;
+                        String barcodeResult = data.getStringExtra(BarcodeCaptureActivity.BarcodeObject);
                         pendingResult.success(barcodeResult);
                     } catch (Exception e) {
                         pendingResult.success("-1");
@@ -126,6 +126,7 @@ public class FlutterBarcodeScannerPlugin implements MethodCallHandler, ActivityR
                 return true;
             } else {
                 pendingResult.success("-1");
+                pendingResult = null;
             }
         }
         return false;
@@ -141,10 +142,10 @@ public class FlutterBarcodeScannerPlugin implements MethodCallHandler, ActivityR
         barcodeStream = null;
     }
 
-    public static void onBarcodeScanReceiver(final Barcode barcode) {
+    public static void onBarcodeScanReceiver(final String barcode) {
         try {
-            if (barcode != null && !barcode.displayValue.isEmpty()) {
-                activity.runOnUiThread(() -> barcodeStream.success(barcode.rawValue));
+            if (barcode != null && !barcode.isEmpty()) {
+                activity.runOnUiThread(() -> barcodeStream.success(barcode));
             }
         } catch (Exception e) {
             Log.e(TAG, "onBarcodeScanReceiver: " + e.getLocalizedMessage());

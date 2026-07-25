@@ -25,7 +25,8 @@ class _MyAppState extends State<MyApp> {
       'Cancel',
       true,
       ScanMode.BARCODE,
-    )!.listen((barcode) => print(barcode));
+    )!
+        .listen((barcode) => print(barcode));
   }
 
   Future<void> scanQR() async {
