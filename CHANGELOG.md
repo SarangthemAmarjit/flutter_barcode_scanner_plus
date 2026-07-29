@@ -1,3 +1,7 @@
+## 3.0.10
+
+- Fixed "No podspec found for flutter_barcode_scanner_plus in .symlinks/plugins/flutter_barcode_scanner_plus/darwin" on iOS by removing the `sharedDarwinSource` flag, which pointed the tooling at a non-existent `darwin/` directory
+
 ## 3.0.9
 
 - Updated android sdk
