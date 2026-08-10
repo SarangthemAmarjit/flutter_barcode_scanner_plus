@@ -23,11 +23,11 @@ apply plugin: 'com.android.library'
 
 android {
     namespace 'com.amolg.flutterbarcodescanner' // Required for Android 12+ (API 31+)
-    compileSdkVersion 34  // Updated to API level 34
+    compileSdkVersion 36  // Updated to API level 36
 
     defaultConfig {
         minSdkVersion 21  // Minimum supported Android version
-        targetSdkVersion 34  // Target API level for the app
+        targetSdkVersion 36  // Target API level for the app
         versionCode 1
         versionName "1.0.0"
 

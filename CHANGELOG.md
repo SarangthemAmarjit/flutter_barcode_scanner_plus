@@ -1,8 +1,8 @@
-## 3.0.11
+## 3.0.12
 
 - Updated android sdk
 
-## 3.0.11
+## 3.0.12
 
 - Updated Lexical or Preprocessor Issue for ios
 
