@@ -1,6 +1,6 @@
 name: flutter_barcode_scanner_plus
 description: A plugin for barcode scanning support on Android and iOS. Supports barcodes, QR codes, etc.
-version: 3.0.12
+version: 3.0.13
 homepage: https://github.com/SarangthemAmarjit/flutter_barcode_scanner_plus
 
 environment:
