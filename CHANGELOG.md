@@ -1,12 +1,12 @@
-## 3.0.14
+## 3.0.15
 
 - Updated camerax_version to 1.4.2 to support 16k page sizes
 
-## 3.0.13
+## 3.0.15
 
 - Updated android sdk
 
-## 3.0.13
+## 3.0.15
 
 - Updated Lexical or Preprocessor Issue for ios
 
