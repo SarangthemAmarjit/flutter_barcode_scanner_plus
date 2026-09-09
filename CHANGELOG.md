@@ -1,3 +1,7 @@
+## 3.0.14
+
+- Updated camerax_version to 1.4.2 to support 16k page sizes
+
 ## 3.0.13
 
 - Updated android sdk
